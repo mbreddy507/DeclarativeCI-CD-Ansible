@@ -1,6 +1,6 @@
 # Simple Spring Boot Maven Project developed in Jenkins Declarative Pipeline
 
-DevOps Tools Used
+DevOps Tools Used shiva
 
 Pipeline CI/CD - GitHub, Maven, Jenkins, Artifactory, SonarQube, Docker, Ansible, Tomcat
 
