@@ -4,7 +4,7 @@ DevOps Tools Used shiva
 
 Pipeline CI/CD - GitHub, Maven, Jenkins, Artifactory, SonarQube, Docker, Ansible, Tomcat
 
-# Access to the tomcat after successfully deploying:
+# Access to the tomcat after successfully deploying: sample
 
 Ex: http://awsip:8050/helloworld/hello
 
