@@ -73,7 +73,7 @@ pipeline {
   stage('Docker Container'){
     steps{
       withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'Anushka@1989', usernameVariable: 'mbreddy507@gmail.com')]) {
-	  sh 'sudo docker login -u mbreddy507@gmail.com -p Anushka@1989'
+	  sh 'sudo docker login -u mbreddy507 -p Anushka@1989'
       	  sh 'sudo docker push mbreddy507/ansibledeploy:${DOCKER_TAG}'
 	  }
     }
