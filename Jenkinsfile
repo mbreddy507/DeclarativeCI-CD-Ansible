@@ -67,14 +67,14 @@ pipeline {
     }
   stage('Build Docker Image'){
     steps{
-      sh 'docker build -t mbreddy507/ansibledeploy:${DOCKER_TAG} .'
+      sh 'sudo docker build -t mbreddy507/ansibledeploy:${DOCKER_TAG} .'
     }
   }	  	 
   stage('Docker Container'){
     steps{
       withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'docker_pass', usernameVariable: 'docker_user')]) {
-	  sh 'docker login -u ${docker_user} -p ${docker_pass}'
-      	  sh 'docker push mbreddy507/ansibledeploy:${DOCKER_TAG}'
+	  sh 'sudo docker login -u ${docker_user} -p ${docker_pass}'
+      	  sh 'sudo docker push mbreddy507/ansibledeploy:${DOCKER_TAG}'
 	  }
     }
  }
