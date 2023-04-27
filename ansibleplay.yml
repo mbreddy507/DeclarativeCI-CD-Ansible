@@ -17,7 +17,7 @@
     - delete_container
 
   - name: remove current docker image
-    shell: docker rmi -f $(docker images | grep dileep95/ansibledeploy)
+    shell: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
     ignore_errors: yes
     tags:
     - delete_image
@@ -25,4 +25,4 @@
   - debug: msg={{ contents }} 
 
   - name: creating docker image
-    command: docker run -d -p 8050:8050 --name AnsibleContainer dileep95/ansibledeploy:"{{ contents }}"
+    command: docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
