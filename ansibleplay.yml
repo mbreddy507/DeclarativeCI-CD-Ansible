@@ -6,13 +6,13 @@
      contents: "{{ lookup('env','DOCKER_TAG') | replace('\n', '')}}"
   tasks:
   - name: stop if we have old docker container
-    command: docker stop mbreddy507/ansibledeploy
+    command: docker rm $(docker ps -a -q)
     ignore_errors: yes
     tags:
     - stop_container
 
   - name: remove stopped docker container
-    command: docker rm mbreddy507/ansibledeploy
+    command: docker rm $(docker ps -a -q)
     ignore_errors: yes
     tags:
     - delete_container
