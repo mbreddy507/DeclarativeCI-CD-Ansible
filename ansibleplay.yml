@@ -3,9 +3,7 @@
   become: true
   gather_facts: no
   vars:
-    contents: |-
-      {{ lookup('env','DOCKER_TAG') | replace('\n', '')}}ls
-      
+    contents: "{{ lookup('env','DOCKER_TAG') | replace('\n', '')}}"
   tasks:
     - name: remove stopped docker container
       command: docker kill $(docker ps -q)
