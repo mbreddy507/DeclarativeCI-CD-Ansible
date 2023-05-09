@@ -5,19 +5,13 @@
   vars:
      contents: "{{ lookup('env','DOCKER_TAG') | replace('\n', '')}}"
   tasks:
-  - name: stop if we have old docker container
-    cmd: docker stop AnsibleContainer
+    - name: remove stopped docker container
+      cmd: docker kill $(docker ps -q)
 
+    - name: remove current docker image
+      cmd: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
 
-  - name: remove stopped docker container
-    cmd: docker rm AnsibleContainer
+    - debug: msg={{ contents }} 
 
-
-  - name: remove current docker image
-    cmd: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
-
-
-  - debug: msg={{ contents }} 
-
-  - name: creating docker image
-    cmd: docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
+    - name: creating docker image
+      cmd: docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
