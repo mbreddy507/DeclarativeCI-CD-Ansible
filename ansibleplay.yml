@@ -4,7 +4,8 @@
   gather_facts: no
   vars:
     contents: |-
-      {{ lookup('env','DOCKER_TAG') | replace('\n', '')}}
+      {{ lookup('env','DOCKER_TAG') | replace('\n', '')}}ls
+      
   tasks:
     - name: remove stopped docker container
       cmd: docker kill $(docker ps -q)
