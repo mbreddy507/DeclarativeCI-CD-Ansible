@@ -8,10 +8,9 @@
       
   tasks:
     - name: remove stopped docker container
-      cmd: docker kill $(docker ps -q)
+      command: docker kill $(docker ps -q)
     - name: remove current docker image
-      cmd: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
+      command: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
     - debug: msg={{ contents }}
     - name: creating docker image
-      cmd: docker run -d -p 8050:8050 --name AnsibleContainer
-        mbreddy507/ansibledeploy:"{{ contents }}"
+      command: docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
