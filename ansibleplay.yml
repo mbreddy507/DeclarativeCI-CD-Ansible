@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: webserver
   become: true
   gather_facts: no
   tasks:
