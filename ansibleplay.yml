@@ -6,9 +6,9 @@
     contents: "{{ lookup('env','DOCKER_TAG') | replace('\n', '')}}"
   tasks:
     - name: remove stopped docker container
-      command: sudo docker kill $(docker ps -q)
+      command: docker kill $(docker ps -q)
     - name: remove current docker image
-      command: sudo docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
+      command: docker rmi -f $(docker images | grep mbreddy507/ansibledeploy)
     - debug: msg={{ contents }}
     - name: creating docker image
-      command: sudo docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
+      command: docker run -d -p 8050:8050 --name AnsibleContainer mbreddy507/ansibledeploy:"{{ contents }}"
