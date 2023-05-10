@@ -6,4 +6,6 @@
     contents: "{{ lookup('env','DOCKER_TAG') | replace('\n', '')}}"
   tasks:
     - name: remove stopped docker container
-      command: docker ps -a
+      shell: "ls -lrt"
+      register: "output"
+    - debug: var=output.stdout_lines
