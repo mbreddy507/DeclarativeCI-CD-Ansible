@@ -25,14 +25,14 @@ pipeline {
     DOCKER_TAG = DockerTag()	  
   }  
   stages {
-	  //stage ('Maven Build') {
-      //steps {
-        //script {
-          //mvn= tool (name: 'Maven', type: 'maven') + '/bin/mvn'
-        //}
-        //sh "${mvn} clean package"
-      //}
-    //}
+	  stage ('Maven Build') {
+      steps {
+        script {
+          mvn= tool (name: 'Maven', type: 'maven') + '/bin/mvn'
+        }
+        sh "${mvn} clean package"
+      }
+    }
     stage('Artifactory_Configuration') {
       steps {
         script {
@@ -44,13 +44,13 @@ pipeline {
         }			                      
       }
     }
-    stage('Execute_Maven') {
-	  steps {
-	    script {
-		  rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
-        }			                      
-      }
-    }	
+    //stage('Execute_Maven') {
+	//  steps {
+	  //  script {
+	//	  rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+        //}			                      
+      //}
+    //}	
     stage('War rename') {
 	  steps {
 		  	sh 'mv target/*.war target/helloworld.war'
