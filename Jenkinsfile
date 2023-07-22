@@ -7,7 +7,7 @@ def DockerTag() {
 	return tag
 	}
 pipeline {
-  agent { label 'master' }
+  agent any
     tools {
       maven 'Maven'
       jdk 'JAVA_HOME'
@@ -25,6 +25,14 @@ pipeline {
     DOCKER_TAG = DockerTag()	  
   }  
   stages {
+	  stage ('Maven Build') {
+      steps {
+        script {
+          mvn= tool (name: 'Maven', type: 'maven') + '/bin/mvn'
+        }
+        sh "${mvn} clean package"
+      }
+    }
     stage('Artifactory_Configuration') {
       steps {
         script {
