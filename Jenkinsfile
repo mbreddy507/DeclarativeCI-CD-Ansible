@@ -44,13 +44,13 @@ pipeline {
         }			                      
       }
     }
-    stage('Execute_Maven') {
-	  steps {
-	    script {
-		  rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
-        }			                      
-      }
-    }	
+    //stage('Execute_Maven') {
+	//  steps {
+	  //  script {
+	//	  rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+        //}			                      
+      //}
+    //}	
     stage('War rename') {
 	  steps {
 		  	sh 'mv target/*.war target/helloworld.war'
