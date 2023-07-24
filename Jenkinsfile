@@ -106,6 +106,8 @@ stage('Update Deployment File') {
             GIT_USER_NAME = "mbreddy507"
 }
 steps {
+  git branch: 'task-1', credentialsId: 'github', url: 'https://github.com/mbreddy507/DeclarativeCI-CD-Ansible.git'
+
                     sh '''
                     git config user.email "mbreddy507@gmail.com"
                     git config user.name "mbreddy507"
