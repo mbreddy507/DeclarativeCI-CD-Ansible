@@ -103,7 +103,7 @@ pipeline
 stage('Update Deployment File') 
 {
   steps {
-sh 'git -v'
+sh 'echo pass'
   }
 }
 }
