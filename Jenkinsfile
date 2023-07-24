@@ -106,7 +106,7 @@ stage('Update Deployment File')
             GIT_REPO_NAME = "DeclarativeCI-CD-Ansible"
             GIT_USER_NAME = "mbreddy507"
             GIT_PASSWORD="Anushka@19891990"
-            GIT_REPO_URL="https://github.com/mbreddy507/DeclarativeCI-CD-Ansible.git"
+            GIT_REPO_URL="github.com/mbreddy507/DeclarativeCI-CD-Ansible.git"
         }
   steps {
     withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
