@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: web-deployment
-        image: dileep95/spring:ImageTag
+        image: dileep95/spring:55
         ports:
         - containerPort: 8090
