@@ -100,21 +100,12 @@ pipeline
       }	  	  
   }
   }  
-stage('Update Deployment File') {
-        environment {
-            GIT_REPO_NAME = "DeclarativeCI-CD-Ansible"
-            GIT_USER_NAME = "mbreddy507"
-}
+stage('Update Deployment File') 
+
 steps {
-  
-  withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')])
-  {
-          BUILD_NUMBER=${BUILD_NUMBER}
-                
-            
-       }     }
-    }
+sh 'git -v'
   }
+}
 
 
 
