@@ -102,8 +102,14 @@ pipeline
 
 stage('Update Deployment File') 
 {
+   environment {
+            GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
+            GIT_USER_NAME = "writetoritika"
+        }
   steps {
-sh 'git -v'
+    withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+sh 'git --version'
+  } 
   }
 }
 }
