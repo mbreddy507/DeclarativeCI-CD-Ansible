@@ -109,15 +109,8 @@ steps {
   
   withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')])
   {
-                    sh '''
-                    git config user.email "mbreddy507@gmail.com"
-                    git config user.name "mbreddy507"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yml
-                    git add deployment.yml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git push origin task-1
-                '''
+          BUILD_NUMBER=${BUILD_NUMBER}
+                
             
        }     }
     }
