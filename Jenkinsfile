@@ -107,7 +107,7 @@ stage('Update Deployment File')
             GIT_USER_NAME = "mbreddy507"
         }
   steps {
-    withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+    withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
 sh '''
                     git config user.email "mbreddy507@gmail.com"
                     git config user.name "mbreddy507"
