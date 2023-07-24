@@ -112,7 +112,7 @@ sh '''
                     git config user.email "writetoritika@gmail.com"
                     git config user.name "Ritika Malhotra"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yml
+                    sed -i "s/ImageTag/${BUILD_NUMBER}/g" deployment.yml
                     git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push origin task-1
