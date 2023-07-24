@@ -104,11 +104,9 @@ stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "DeclarativeCI-CD-Ansible"
             GIT_USER_NAME = "mbreddy507"
-        }
-        steps {
-            git branch: 'task-1', credentialsId: 'github', url: 'https://github.com/mbreddy507/DeclarativeCI-CD-Ansible.git'
-             {
-                sh '''
+}
+steps {
+                    sh '''
                     git config user.email "mbreddy507@gmail.com"
                     git config user.name "mbreddy507"
                     BUILD_NUMBER=${BUILD_NUMBER}
@@ -117,8 +115,10 @@ stage('Update Deployment File') {
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push origin task-1
                 '''
-            }
+            
         }
     }
   }
+
+
 
