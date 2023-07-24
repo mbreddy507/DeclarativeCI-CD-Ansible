@@ -101,10 +101,11 @@ pipeline
   }
   }  
 stage('Update Deployment File') 
-
-steps {
+{
+  steps {
 sh 'git -v'
   }
+}
 }
 
 
