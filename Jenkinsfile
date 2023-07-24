@@ -99,12 +99,13 @@ pipeline
      //   }
       }	  	  
   }
-  }  
+
 stage('Update Deployment File') 
 {
   steps {
-sh 'echo pass'
+sh 'git -v'
   }
+}
 }
 }
 
