@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: web-deployment
-        image: mbreddy507/ansibledeploy:ImageTag
+        image: mbreddy507/ansibledeploy:57
         ports:
         - containerPort: 8090
