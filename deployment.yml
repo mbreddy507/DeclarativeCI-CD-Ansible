@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: web-deployment
-        image: dileep95/spring:ImageTag
+        image: mbreddy507/ansibledeploy:ImageTag
         ports:
         - containerPort: 8090
