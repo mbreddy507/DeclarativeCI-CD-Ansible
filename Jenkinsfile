@@ -105,8 +105,6 @@ stage('Update Deployment File')
    environment {
             GIT_REPO_NAME = "DeclarativeCI-CD-Ansible"
             GIT_USER_NAME = "mbreddy507"
-            GIT_PASSWORD="Anushka@19891990"
-            GIT_REPO_URL="github.com/mbreddy507/DeclarativeCI-CD-Ansible.git"
         }
   steps {
     withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
@@ -117,7 +115,7 @@ sh '''
                     sed -i "s/ImageTag/${BUILD_NUMBER}/g" deployment.yml
                     git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${GIT_REPO_URL} HEAD:task-1"
+                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:task-1
                 '''
   } 
   }
