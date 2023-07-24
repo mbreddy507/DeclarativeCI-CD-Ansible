@@ -6,7 +6,8 @@ def DockerTag() {
 	def tag = sh script: 'git rev-parse HEAD', returnStdout:true
 	return tag
 	}
-pipeline {
+pipeline 
+{
   agent any
     tools {
       maven 'Maven'
@@ -98,4 +99,5 @@ pipeline {
      //   }
       }	  	  
   }
-}  
+  }  
+}
