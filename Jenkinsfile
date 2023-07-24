@@ -33,8 +33,9 @@ pipeline {
         sh "${mvn} clean package"
       }
     }
-    //stage('Artifactory_Configuration') {
-      //steps {
+    stage('Artifactory_Configuration') {
+      steps {
+        sh 'echo passed'
         //script {
 	//	  rtMaven.tool = 'Maven'
 	//	  rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
@@ -42,15 +43,16 @@ pipeline {
 	//	  rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot', server: server
          // buildInfo.env.capture = true
         //}			                      
-      //}
-    //}
-    //stage('Execute_Maven') {
-	//  steps {
+      }
+    }
+    stage('Execute_Maven') {
+	  steps {
+      sh 'echo pass'
 	  //  script {
 	//	  rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
         //}			                      
-      //}
-    //}	
+      }
+    }	
     stage('War rename') {
 	  steps {
 		  	sh 'mv target/*.war target/helloworld.war'
@@ -86,12 +88,13 @@ pipeline {
 	  }
     }
  }
-    stage('Ansible Playbook'){
-      steps {
+    //stage('Ansible Playbook')
+    //{
+      //steps {
        //ansiblePlaybook credentialsId: 'ans-server', inventory: 'inventory', playbook: 'ansibleplay.yml', tags: 'stop_container,delete_container'
        // Above command used to run the playbook with specified tags mentioned in the tags section.	
-	 ansiblePlaybook credentialsId: 'ans-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'ansibleplay.yml'     
-        }
-      }	  	  
+	 //ansiblePlaybook credentialsId: 'ans-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory', playbook: 'ansibleplay.yml'     
+     //   }
+      //}	  	  
   }
 }  
